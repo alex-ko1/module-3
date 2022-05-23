@@ -1,0 +1,22 @@
+entity.li.settings:
+  title: Settings
+  route_name: entity.li.settings
+  base_route: entity.li.settings
+entity.li.view:
+  title: View
+  route_name: entity.li.canonical
+  base_route: entity.li.canonical
+entity.li.edit_form:
+  title: Edit
+  route_name: entity.li.edit_form
+  base_route: entity.li.canonical
+entity.li.delete_form:
+  title: Delete
+  route_name: entity.li.delete_form
+  base_route: entity.li.canonical
+  weight: 10
+entity.li.collection:
+  title: li
+  route_name: entity.li.collection
+  base_route: system.admin_content
+  weight: 10

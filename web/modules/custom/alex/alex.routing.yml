@@ -1,0 +1,7 @@
+entity.alex.settings:
+  path: 'admin/structure/alex'
+  defaults:
+    _form: '\Drupal\alex\Form\AlexSettingsForm'
+    _title: 'alex'
+  requirements:
+    _permission: 'administer alex'

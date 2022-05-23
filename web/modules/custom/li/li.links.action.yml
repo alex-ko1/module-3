@@ -1,0 +1,5 @@
+li.add_form:
+  route_name: entity.li.add_form
+  title: 'Add li'
+  appears_on:
+    - entity.li.collection

@@ -21,3 +21,9 @@
 
 # Ignore .env files as they are personal
 /.env
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+DS_Store

@@ -1,0 +1,15 @@
+entity.li.settings:
+  path: 'admin/structure/li'
+  defaults:
+    _form: '\Drupal\li\Form\LiSettingsForm'
+    _title: 'li'
+  requirements:
+    _permission: 'administer li'
+
+li.content:
+  path: '/li'
+  defaults:
+    _title: 'Guestbook'
+    _controller: '\Drupal\li\Controller\PageController::build'
+  requirements:
+    _permission: 'access content'

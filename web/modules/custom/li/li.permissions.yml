@@ -1,0 +1,5 @@
+administer li:
+  title: 'Administer li settings'
+  restrict access: true
+access li overview:
+  title: 'Access li overview page'

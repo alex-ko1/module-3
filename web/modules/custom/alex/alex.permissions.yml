@@ -1,0 +1,5 @@
+administer alex:
+  title: 'Administer alex settings'
+  restrict access: true
+access alex overview:
+  title: 'Access alex overview page'

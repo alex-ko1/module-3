@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a li entity.
+ *
+ * This template is used when viewing a registered li's page,
+ * e.g., /admin/content/li)/123. 123 being the li's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.title'.
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_li()
+ */
+#}
+<article{{ attributes }}>
+  {{ title_suffix }}
+  <div class="feedback-user-info">
+    {% if content.avatar[0] %}
+      {{ content.avatar[0] }}
+    {% else %}
+      <img
+              class="img-fluid image-style-thumbnail"
+              src="/modules/custom/li/img/default/user-default.png"
+              alt="default user avatar"
+              title={{ content.name[0]['#context']['value'] }}
+      />
+    {% endif %}
+    {{ content.name }}
+    {{ content.created }}
+  </div>
+  <div class="feedback-user-review">
+    {{ content.text }}
+    {% if content.image[0] %}
+      {{ content.image[0] }}
+    {% endif %}
+  </div>
+  <div class="feedback-user-contacts">
+    {{ content.phone }}
+    {{ content.email }}
+  </div>
+  <div class="option-links">
+    {% if '/li/1/' in url %}
+    <a class="btn btn-primary rounded-sm" href="/li" title="{{ 'Go to form page'|t }}" rel="next">Return to form</a>
+    {% endif %}
+  </div>
+</article>

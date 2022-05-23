@@ -1,0 +1,6 @@
+name: 'Drupalbook Product'
+type: module
+description: 'Products catalog'
+core: 8.x
+package: 'Custom'
+core_version_requirement: ^8 || ^9
