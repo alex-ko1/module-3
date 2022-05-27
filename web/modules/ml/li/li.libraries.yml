@@ -1,9 +1,0 @@
-li-css:
-  css:
-    theme:
-      css/style.css: { }
-
-inputmask:
-  js:
-    js/jquery.inputmask.min.js: { }
-    js/app.js: { }

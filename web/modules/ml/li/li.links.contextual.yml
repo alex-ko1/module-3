@@ -1,9 +1,0 @@
-li_edit:
-  title: 'Edit'
-  route_name: 'entity.li.edit_form'
-  group: 'li'
-
-li_delete:
-  title: 'Delete'
-  route_name: 'entity.li.delete_form'
-  group: 'li'

@@ -1,5 +1,0 @@
-alex.add_form:
-  route_name: entity.alex.add_form
-  title: 'Add alex'
-  appears_on:
-    - entity.alex.collection
