@@ -1,7 +1,23 @@
-entity.alex.settings:
-  path: 'admin/structure/alex'
+alex:
+  path: '/alex'
   defaults:
-    _form: '\Drupal\alex\Form\AlexSettingsForm'
-    _title: 'alex'
+    _controller: '\Drupal\alex\Controller\AlexController::build'
+    _title: 'Reviews'
   requirements:
-    _permission: 'administer alex'
+    _permission: 'access content'
+
+entity.alex.delete_form:
+  path: '/alex/{alex}/delete'
+  defaults:
+    _entity_form: 'alex.delete'
+    _title: 'Delete review'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.alex.edit:
+  path: '/alex/{alex}/edit'
+  defaults:
+    _entity_form: 'alex.default'
+    _title: 'Edit review'
+  requirements:
+    _permission: 'administer site configuration'

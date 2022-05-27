@@ -1,36 +1,62 @@
 <?php
 
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+
+
 /**
  * @file
- * Provides an alex entity type.
- */
-
-use Drupal\Core\Render\Element;
-
-/**
  * Implements hook_theme().
  */
-function alex_theme() {
+function alex_theme($existing, $type, $theme, $path): array
+{
   return [
-    'alex' => [
-      'render element' => 'elements',
+    'guest-page' => [
+      'variables' => [
+        'form' => NULL,
+        'reviews' => NULL,
+        'pager' => NULL,
+      ],
     ],
+    'alex' => [
+      'template' => 'alex',
+      'render element' => 'elements',
+    ]
   ];
 }
-
 /**
- * Prepares variables for alex templates.
- *
- * Default template: alex.html.twig.
- *
- * @param array $variables
- *   An associative array containing:
- *   - elements: An associative array containing the alex information and any
- *     fields attached to the entity.
- *   - attributes: HTML attributes for the containing element.
+ * Implements hook_preprocess_HOOK().
  */
-function template_preprocess_alex(array &$variables) {
+function template_preprocess_alex(&$variables) {
+  // Helpful $content variable for templates.
+  $variables['content'] = [];
+
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+
+  $entity = $variables['elements']['#alex'];
+
+  // Add control button.
+  $variables['button'] = [
+    '#type' => 'link',
+    '#title' => 'Manage',
+    '#url' => Url::fromRoute('entity.alex.edit', ['alex' => $entity->id()]),
+  ];
+
+  // Add default image.
+  if (count($variables['content']['avatar']) <= 3) {
+    $variables['content']['avatar'] = [
+      '#theme' => 'image',
+      '#uri' => '/modules/custom/alex/files/user-icon.jpg',
+      '#attributes' => [
+        'alt' => 'picture',
+        'width' => 100,
+        'height' => 100,
+      ],
+    ];
+  }
+
+  $variables['#attached']['library'][] = 'alex/alex.reviews';
+
 }

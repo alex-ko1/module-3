@@ -1,21 +1,21 @@
-x{#
-/**
- * @file
- * Default theme implementation to present an alex entity.
- *
- * This template is used when viewing a registered alex's page,
- * e.g., /admin/content/alex)/123. 123 being the alex's ID.
- *
- * Available variables:
- * - content: A list of content items. Use 'content' to print all content, or
- *   print a subset such as 'content.title'.
- * - attributes: HTML attributes for the container element.
- *
- * @see template_preprocess_alex()
- */
-#}
-<article{{ attributes }}>
-  {% if content %}
-    {{- content -}}
-  {% endif %}
-</article>
+{{ attach_library('alex/alex.reviews') }}
+<div class="review {{ cycle(['odd', 'even'], content  ) }}">
+  <div class="user-data">
+    <div class="user__avatar">{{content.avatar}}</div>
+    <div class="user__name">{{ content.name }}</div>
+    <div class="user__date">{{content.date}}</div>
+  </div>
+  <div class="user-review">
+    <div class="review__text">{{content.review}}</div>
+    {% if content.image is not null %}
+    <div class="review__image">{{ content.image }}</div>
+    {% endif %}
+  </div>
+  <div class="contact">
+    <div class="contact__email">{{ content.email }}</div>
+    <div class="contact__phone">{{ content.phone }}</div>
+    {% if user.hasPermission('administer nodes') %}
+    <div class="button">{{ button }}</div>
+    {% endif %}
+  </div>
+</div>

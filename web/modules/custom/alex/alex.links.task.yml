@@ -1,22 +1,9 @@
-entity.alex.settings:
-  title: Settings
-  route_name: entity.alex.settings
-  base_route: entity.alex.settings
-entity.alex.view:
-  title: View
-  route_name: entity.alex.canonical
+review.edit:
+  route_name: entity.alex.edit
   base_route: entity.alex.canonical
-entity.alex.edit_form:
-  title: Edit
-  route_name: entity.alex.edit_form
-  base_route: entity.alex.canonical
-entity.alex.delete_form:
-  title: Delete
+  title: Edit a review
+
+review.delete:
   route_name: entity.alex.delete_form
   base_route: entity.alex.canonical
-  weight: 10
-entity.alex.collection:
-  title: alex
-  route_name: entity.alex.collection
-  base_route: system.admin_content
-  weight: 10
+  title: Delete a review

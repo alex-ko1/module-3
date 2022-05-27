@@ -1,8 +1,0 @@
-multistep_form:
-  css:
-    css/multistep_form.css: {}
-  js:
-    scripts/multistep_form.js: {}
-  dependencies:
-    - core/jquery
-    - core/jquery.once
