@@ -6,7 +6,6 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\MessageCommand;
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Language\Language;
 
 /**
  * Form for the alex entity.
@@ -16,7 +15,7 @@ class AlexForm extends ContentEntityForm {
   /**
    * {@inheritDoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state): array {
     $form = parent::buildForm($form, $form_state);
 
     $form['name']['widget'][0]['value']['#ajax'] = [
@@ -44,6 +43,7 @@ class AlexForm extends ContentEntityForm {
 
   /**
    * {@inheritDoc}
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function save(array $form, FormStateInterface $form_state) {
     $entity = $this->getEntity();

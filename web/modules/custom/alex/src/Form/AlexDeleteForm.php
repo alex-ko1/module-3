@@ -6,15 +6,10 @@ use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
-/**
- * Provides a form for deleting a alex entity.
- *
- * @ingroup alex
- */
 class AlexDeleteForm extends ContentEntityConfirmFormBase {
 
   /**
-   * Returns the question to ask the user.
+   * Question about confirming delete this feedback.
    */
   public function getQuestion() {
     return $this->t('Are you sure you want to delete review?');
@@ -34,8 +29,9 @@ class AlexDeleteForm extends ContentEntityConfirmFormBase {
     return $this->t('Delete');
   }
 
+
   /**
-   * We delete our review when confirming the form.
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $entity = $this->entity;

@@ -38,10 +38,6 @@ use Drupal\Core\Field\BaseFieldDefinition;
 class AlexEntity extends ContentEntityBase {
 
   /**
-   * {@inheritdoc}
-   */
-
-  /**
    * Make fields for my entity.
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type): array {
